@@ -1,0 +1,24 @@
+{
+  "name": "whale3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrei-coelho/whale3d.git"
+  },
+  "author": "andrei coelho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrei-coelho/whale3d/issues"
+  },
+  "homepage": "https://github.com/andrei-coelho/whale3d#readme",
+  "dependencies": {
+    "@types/three": "^0.163.0",
+    "three": "^0.163.0",
+    "three-x3": "^0.0.10"
+  }
+}
