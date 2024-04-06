@@ -13,7 +13,7 @@ class SceneHelper {
     private renderer:three.Renderer
     private camera:three.PerspectiveCamera
     private light:three.Light = new three.HemisphereLight(
-        0xa8a500, 0x3d3c0f, 2 
+        0xffffff, 0x1040f, 2 
     )
     private objects:Map<string,ObjectScene>= new Map()
 

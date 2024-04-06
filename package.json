@@ -18,7 +18,12 @@
   "homepage": "https://github.com/andrei-coelho/whale3d#readme",
   "dependencies": {
     "@types/three": "^0.163.0",
+    "nodemon": "^3.1.0",
     "three": "^0.163.0",
     "three-x3": "^0.0.10"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1"
   }
 }

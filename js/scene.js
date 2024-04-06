@@ -2,7 +2,7 @@ import * as three from 'three';
 class SceneHelper {
     constructor(width, height, to = "#scene") {
         var _a;
-        this.light = new three.HemisphereLight(0xa8a500, 0x3d3c0f, 2);
+        this.light = new three.HemisphereLight(0xffffff, 0x1040f, 2);
         this.objects = new Map();
         const renderer = new three.WebGLRenderer();
         renderer.setSize(width, height);

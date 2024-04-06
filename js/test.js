@@ -12,7 +12,6 @@ const light = sceneObj.getLight()
 const whale = new Whale()
 sceneObj.addObject("whale", whale)
 
-console.log(THREEx3);
 const x3 = new THREEx3({ THREE, OrbitControls, camera, renderer, scene} );
 for(const ob of whale.getObjects()){
   x3.add(ob)
