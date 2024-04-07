@@ -15,18 +15,12 @@ const material = new THREE.LineBasicMaterial({color:0xFFFFFF})
 
 const path = new THREE.Shape()
 // parte direita
-path.moveTo(11,4)
-path.lineTo(11.25,4)
-path.quadraticCurveTo(11.25,3.25,12,3.25)
-path.lineTo(12.25,3.25)
-path.quadraticCurveTo(12.6,2.8,12.6,2.6)
-path.quadraticCurveTo(12.3,2.8,11,2.8)
-
-// parte esquerda
-path.quadraticCurveTo(9.4,2.8,9.4,2.6)
-path.quadraticCurveTo(9.4,2.8,9.6,3.25)
-path.quadraticCurveTo(10.75,3.10,10.75,4)
-path.lineTo(11,4)
+path.moveTo(8.75, 4)
+path.quadraticCurveTo(8.6,3.6,8.6, 3)
+path.quadraticCurveTo(8.6,2,8,2)
+path.quadraticCurveTo(8.2,2.5,8.25,3)
+path.quadraticCurveTo(8.6,3.9,8.5,4)
+path.lineTo(8.75, 4)
 
 const geometry = new THREE.BufferGeometry( )
 geometry.setFromPoints(path.getPoints())

@@ -6,10 +6,9 @@ import ObjectScene from "../ObjectScene.js";
 class BarbatanaCaudal extends ObjectScene {
 
     constructor(){
+
         super()
-
-        const material = new three.MeshLambertMaterial({color:0x82355, side:three.DoubleSide})
-
+        const material = new three.MeshPhysicalMaterial({color:0x82355, side:three.DoubleSide})
         const path = new three.Shape()
 
         const shape = [
@@ -45,7 +44,7 @@ class BarbatanaCaudal extends ObjectScene {
             bevelThickness:0.1
         })
         
-        const mesh = new three.Mesh(geometry,material)
+        const mesh      = new three.Mesh(geometry,material)
         mesh.rotation.x = -1.55
         mesh.rotation.z = 1.55
 
@@ -54,6 +53,7 @@ class BarbatanaCaudal extends ObjectScene {
         mesh.position.z = 8 
 
         this.objects.push(mesh)
+
     }
 
     animationMananger(key: string): void {}

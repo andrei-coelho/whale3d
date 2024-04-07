@@ -3,7 +3,7 @@ import ObjectScene from "../ObjectScene.js";
 class BarbatanaCaudal extends ObjectScene {
     constructor() {
         super();
-        const material = new three.MeshLambertMaterial({ color: 0x82355, side: three.DoubleSide });
+        const material = new three.MeshPhysicalMaterial({ color: 0x82355, side: three.DoubleSide });
         const path = new three.Shape();
         const shape = [
             { action: "move", values: [11, 4] },
