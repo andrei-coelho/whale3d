@@ -1,8 +1,73 @@
 import * as three from 'three';
 import ObjectScene from "../ObjectScene.js";
+const dataAnimationFixed = { toDown: true, steps: 200 };
+const topPosition = {
+    position: {
+        x: 4.88,
+        y: 2.45,
+        z: 8
+    },
+    rotation: {
+        x: -1.55,
+        y: -0.29,
+        z: 1.57
+    }
+};
+const bottomPosition = {
+    position: {
+        x: 4.8,
+        y: 0.81,
+        z: 8
+    },
+    rotation: {
+        x: -1.55,
+        y: 0.53,
+        z: 1.55
+    }
+};
+const stepObj = {
+    position: {
+        x: (topPosition.position.x - bottomPosition.position.x) / dataAnimationFixed.steps,
+        y: (topPosition.position.y - bottomPosition.position.y) / dataAnimationFixed.steps,
+        z: (topPosition.position.z - bottomPosition.position.z) / dataAnimationFixed.steps
+    },
+    rotation: {
+        x: (topPosition.rotation.x - bottomPosition.rotation.x) / dataAnimationFixed.steps,
+        y: (topPosition.rotation.y - bottomPosition.rotation.y) / dataAnimationFixed.steps,
+        z: (topPosition.rotation.z - bottomPosition.rotation.z) / dataAnimationFixed.steps
+    },
+};
+const statusToDown = true;
+const defaultAnimation = (objScene) => {
+    const obj = objScene.getObjects()[0];
+    obj.position.x = dataAnimationFixed.toDown ? obj.position.x - stepObj.position.x : obj.position.x + stepObj.position.x;
+    obj.position.y = dataAnimationFixed.toDown ? obj.position.y - stepObj.position.y : obj.position.y + stepObj.position.y;
+    obj.position.z = dataAnimationFixed.toDown ? obj.position.z - stepObj.position.z : obj.position.z + stepObj.position.z;
+    obj.rotation.x = dataAnimationFixed.toDown ? obj.rotation.x - stepObj.rotation.x : obj.rotation.x + stepObj.rotation.x;
+    obj.rotation.y = dataAnimationFixed.toDown ? obj.rotation.y - stepObj.rotation.y : obj.rotation.y + stepObj.rotation.y;
+    obj.rotation.z = dataAnimationFixed.toDown ? obj.rotation.z - stepObj.rotation.z : obj.rotation.z + stepObj.rotation.z;
+    if (dataAnimationFixed.toDown && obj.position.y < bottomPosition.position.y) {
+        dataAnimationFixed.toDown = false;
+        obj.position.x = bottomPosition.position.x;
+        obj.position.y = bottomPosition.position.y;
+        obj.position.z = bottomPosition.position.z;
+        obj.rotation.x = bottomPosition.rotation.x;
+        obj.rotation.y = bottomPosition.rotation.y;
+        obj.rotation.z = bottomPosition.rotation.z;
+    }
+    if (!dataAnimationFixed.toDown && obj.position.y > topPosition.position.y) {
+        dataAnimationFixed.toDown = true;
+        obj.position.x = topPosition.position.x;
+        obj.position.y = topPosition.position.y;
+        obj.position.z = topPosition.position.z;
+        obj.rotation.x = topPosition.rotation.x;
+        obj.rotation.y = topPosition.rotation.y;
+        obj.rotation.z = topPosition.rotation.z;
+    }
+};
 class BarbatanaCaudal extends ObjectScene {
     constructor() {
-        super();
+        super(defaultAnimation);
         const material = new three.MeshPhysicalMaterial({ color: 0x82355, side: three.DoubleSide });
         const path = new three.Shape();
         const shape = [
@@ -39,13 +104,13 @@ class BarbatanaCaudal extends ObjectScene {
             bevelThickness: 0.1
         });
         const mesh = new three.Mesh(geometry, material);
-        mesh.rotation.x = -1.55;
-        mesh.rotation.z = 1.55;
-        mesh.position.x = 4.86;
-        mesh.position.y = 1.77;
-        mesh.position.z = 8;
+        mesh.position.x = topPosition.position.x;
+        mesh.position.y = topPosition.position.y;
+        mesh.position.z = topPosition.position.z;
+        mesh.rotation.x = topPosition.rotation.x;
+        mesh.rotation.y = topPosition.rotation.y;
+        mesh.rotation.z = topPosition.rotation.z;
         this.objects.push(mesh);
     }
-    animationMananger(key) { }
 }
 export default BarbatanaCaudal;

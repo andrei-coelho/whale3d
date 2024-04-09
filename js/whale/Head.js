@@ -28,7 +28,7 @@ const headTop = () => {
 };
 class Head extends ObjectScene {
     constructor() {
-        super();
+        super(() => { });
         const geometry = new three.SphereGeometry(0.8, 32, 16);
         const material = new three.MeshLambertMaterial({ color: 0x82355, side: three.DoubleSide });
         const fucinho = new three.Mesh(geometry, material);
@@ -38,8 +38,6 @@ class Head extends ObjectScene {
         fucinho.scale.y = 1.34;
         fucinho.scale.z = 1.4;
         this.objects.push(fucinho);
-    }
-    animationMananger(key) {
     }
 }
 export default Head;

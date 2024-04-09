@@ -3,14 +3,21 @@ import * as three from 'three'
 abstract class ObjectScene {
 
     protected objects:three.Mesh[] = []
-    protected animation:Function|undefined
+    protected object_scenes:ObjectScene[] = []
+    protected animation:Function
 
-    abstract animationMananger(key:string):void;
+    constructor(animation:Function){
+        this.animation = animation
+    }
+
     animate(){
-        if(this.animation) this.animation(this)
+        this.animation(this)
     }
     getObjects():three.Mesh[]{
         return this.objects
+    }
+    getObjectsScenes():ObjectScene[]{
+        return this.object_scenes
     }
 }
 

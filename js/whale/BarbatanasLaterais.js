@@ -19,24 +19,23 @@ const generateBarbatana = () => {
 };
 class BarbatanasLaterais extends ObjectScene {
     constructor() {
-        super();
+        super(() => { });
         const barbatana_d = generateBarbatana();
-        barbatana_d.rotation.x = 1.6;
+        barbatana_d.rotation.x = 0.96;
         barbatana_d.rotation.y = 3.3;
         barbatana_d.rotation.z = 0;
         barbatana_d.position.x = 8.13;
         barbatana_d.position.z = -5;
-        barbatana_d.position.y = 3.44;
+        barbatana_d.position.y = 0.21;
         this.objects.push(barbatana_d);
         const barbatana_l = generateBarbatana();
-        barbatana_l.rotation.x = 1.5;
+        barbatana_l.rotation.x = 2.05;
         barbatana_l.rotation.z = 3.3;
         barbatana_l.rotation.y = 0;
         barbatana_l.position.x = 7.44;
-        barbatana_l.position.y = 2.3;
-        barbatana_l.position.z = 6.3;
+        barbatana_l.position.y = -1.02;
+        barbatana_l.position.z = 5.54;
         this.objects.push(barbatana_l);
     }
-    animationMananger(key) { }
 }
 export default BarbatanasLaterais;

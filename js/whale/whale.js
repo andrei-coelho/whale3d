@@ -6,8 +6,12 @@ import BarbatanasLaterais from "./BarbatanasLaterais.js";
 import Head from "./Head.js";
 class Whale extends ObjectScene {
     constructor() {
-        super();
-        this.object_scenes = [];
+        super((obj) => {
+            const allobjs = obj.getObjectsScenes();
+            for (const o of allobjs) {
+                o.animate();
+            }
+        });
         const material = new three.MeshLambertMaterial({ color: 0x82355, side: three.DoubleSide });
         const margeo = new three.SphereGeometry(100, 32, 16);
         const mar = new three.Mesh(margeo, material);
@@ -25,6 +29,5 @@ class Whale extends ObjectScene {
         this.object_scenes.push(barbatanasLaterais);
         this.objects.push(...barbatanasLaterais.getObjects());
     }
-    animationMananger(key) { }
 }
 export default Whale;

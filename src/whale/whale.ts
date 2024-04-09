@@ -7,11 +7,14 @@ import Head from "./Head.js";
 
 class Whale extends ObjectScene {
 
-    private object_scenes:ObjectScene[] = []
-
     constructor(){
 
-        super()
+        super((obj:ObjectScene) => {
+            const allobjs = obj.getObjectsScenes()
+            for(const o of allobjs){
+                o.animate()
+            }
+        })
      
         const material = new three.MeshLambertMaterial({color:0x82355, side:three.DoubleSide})
         const margeo   = new three.SphereGeometry( 100, 32, 16 );
@@ -35,8 +38,6 @@ class Whale extends ObjectScene {
         this.objects.push(...barbatanasLaterais.getObjects())
     
     }
-
-    animationMananger(key:string){}
 
 }
 

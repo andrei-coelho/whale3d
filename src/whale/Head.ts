@@ -27,6 +27,7 @@ const basehead = () => {
 
 
 const headTop = () => {
+
     const geometry = new three.CylinderGeometry(0.8,1,1.5,20,1,true)
 
     const material = new three.MeshLambertMaterial({color:0x82355, side:three.DoubleSide})
@@ -48,7 +49,7 @@ class Head extends ObjectScene {
 
     constructor(){
 
-        super()
+        super(() => {})
         
         const geometry = new three.SphereGeometry( 0.8, 32, 16 );
         const material = new three.MeshLambertMaterial({color:0x82355, side:three.DoubleSide})
@@ -62,10 +63,6 @@ class Head extends ObjectScene {
 
         this.objects.push(fucinho)
 
-    }
-
-    animationMananger(key: string): void {
-        
     }
 
 }

@@ -1,13 +1,17 @@
 class ObjectScene {
-    constructor() {
+    constructor(animation) {
         this.objects = [];
+        this.object_scenes = [];
+        this.animation = animation;
     }
     animate() {
-        if (this.animation)
-            this.animation(this);
+        this.animation(this);
     }
     getObjects() {
         return this.objects;
+    }
+    getObjectsScenes() {
+        return this.object_scenes;
     }
 }
 export default ObjectScene;
